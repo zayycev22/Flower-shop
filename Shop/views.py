@@ -17,4 +17,4 @@ def set_new_user():
 
 def index(request):
     a = ExUser.objects.all()
-    return render(request, 'index.html')
+    return render(request, 'home.html')
