@@ -16,5 +16,7 @@ def set_new_user():
 
 
 def index(request):
-    a = ExUser.objects.all()
     return render(request, 'home.html')
+
+def catalog(request):
+    return render(request, 'catalog.html')
