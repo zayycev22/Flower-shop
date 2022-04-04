@@ -1,7 +1,5 @@
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib import auth
 from django.contrib.auth import logout
@@ -18,6 +16,7 @@ def set_new_user():
 
 
 def index(request):
-    set_new_user()
-    print("")
-    return render(request, 'index.html')
+    return render(request, 'home.html')
+
+def catalog(request):
+    return render(request, 'catalog.html')
