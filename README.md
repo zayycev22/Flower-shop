@@ -51,6 +51,7 @@ $ python3 manage.py migrate
 $ python3 manage.py runserver 0.0.0.0:8000
 ```
 ## Обновление css
+Для создания css файла
 ```bash
-Для создания css файла npx tailwindcss -i ./static/css/style.css -o ./static/css/output.css --watch
+$ npx tailwindcss -i ./static/css/style.css -o ./static/css/output.css --watch
 ```
