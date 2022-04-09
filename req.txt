@@ -1,4 +1,4 @@
 whitenoise
 Pillow
-
+Django
 Для создания css файла npx tailwindcss -i ./static/css/style.css -o ./static/css/output.css --watch
