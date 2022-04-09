@@ -7,16 +7,20 @@ from django.http import Http404
 from .models import ExUser, Flower, Discount
 
 
-def set_new_user():
-    try:
-        a = ExUser(email="abcd@mail.com", password="123")
-        a.save()
-    except Exception as e:
-        print(str(e))
-
-
 def index(request):
     return render(request, 'home.html')
 
+
 def catalog(request):
-    return render(request, 'catalog.html')
+    all = Flower.objects.all()
+    return render(request, 'catalog.html', {'flowers': all})
+
+
+def card(request, articul: str):
+    try:
+        flower = Flower.objects.get(articul=articul)
+    except Exception as e:
+        print("OK")
+        raise Http404("Flower does not exist")
+    else:
+        return render(request, 'card.html', {'flower': flower})
