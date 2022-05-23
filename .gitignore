@@ -1,0 +1,5 @@
+Shop/migrations
+.idea
+django-venv
+Flowers/__pycache__/
+Shop/__pycache__/
