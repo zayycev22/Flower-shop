@@ -27,3 +27,19 @@ def create_bill(userid, amount):
     pay_url = json.loads(responce.text)['payUrl']
 
     return (pay_url)
+
+def check_user_payment(userid):
+    headers = {
+        'accept': 'application/json',
+        'Authorization': f'Bearer {QIWI_API_SECRET_KEY}'
+    }
+    billid = f"fwshop_{userid}"
+
+    responce = json.loads(requests.get(url = f"https://api.qiwi.com/partner/bill/v1/bills/{billid}", headers = headers).text)
+    result = {
+        "status" : responce["status"]["value"]
+    }
+    if result["status"] == "PAID":
+        result["money_amount"] = responce["amount"]["value"]
+
+    return (result)
